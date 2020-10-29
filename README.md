@@ -19,11 +19,20 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
  > * Why is it important or interesting to you?
+ >   * It is important as students to organize tasks and events to better manage our schedules. Without an appropriate method of doing so, it would be easy to feel overwhelmed and confused. An online TODO planner would be a paperless solution to visualize such responsibilities according to days, weeks, and months. 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
+ >   * C++ - Main Language we will be using
+ >   * HTML/CSS - If time permits and we decide to pursue making this web application
  > * What will be the input/output of your project?
+ >   * Input would consist of different types of tasks/events that a user would want to organize/manage, and output would consist of a kind of calendar/planner that helps them visualize their tasks/events, their respectives times, and how these different times line up with each other.
  > * What are the three design patterns you will be using. For each design pattern you must:
  >   * Explain in 3 - 5 sentences why you picked this pattern and what feature you will implement with it
+ >      * Strategy
+ >         * The strategy pattern is effective when many different classes don’t vary much in composition, but rather in behavior. This makes it effective for a TODO planner such as ours because we can treat tasks as objects to implement this pattern. Each task will be mostly similar in composition, with only slight behavioral differences. For example, a task that is to be an all day task (such as a holiday event) will have a different relationship to the calendar than an event that occupies a specific time (such as a scheduled test).
+ >      * Composite
+ >         * The composite design pattern allows objects to be composed into tree structures, representing part-whole hierarchies. This makes it effective for a TODO planner such as ours because we can categorize components of the year into tree structures in which days are under weeks, which are under months and so forth. Also, it would allow the user to treat the composition of individual objects uniformly. For example, tasks within a day could be treated the same as tasks within a week or a month. 
+ >      * Decorator
+ >         * The decorator design pattern allows objects to gain new functionalities without altering their structures.This makes it effective for a TODO planner such as ours because we can treat each task (that the user inputs) as an object and “decorate” it (categorize it) with different groups. In doing so, we avoid disrupting any structures or patterns, and are able to simply give each “task” an additional function(s). Some categories, such as homework, could be given a higher priority than other categories. All the user needs to worry about is giving their task a title, and categorizing it based on what their task is.
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
  > ## Phase II
