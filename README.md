@@ -22,7 +22,7 @@
  >   * It is important as students to organize tasks and events to better manage our schedules. Without an appropriate method of doing so, it would be easy to feel overwhelmed and confused. An online TODO planner would be a paperless solution to visualize such responsibilities according to days, weeks, and months. 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * C++ - Main Language we will be using
- >   * HTML/CSS - If time permits and we decide to pursue making this web application
+ >   * HTML/CSS - If time permits and we decide to pursue making this a web application
  > * What will be the input/output of your project?
  >   * Input would consist of different types of tasks/events that a user would want to organize/manage, and output would consist of a kind of calendar/planner that helps them visualize their tasks/events, their respectives times, and how these different times line up with each other.
  > * What are the three design patterns you will be using. For each design pattern you must:
