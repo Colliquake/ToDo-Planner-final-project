@@ -33,7 +33,6 @@
  >         * The composite design pattern allows objects to be composed into tree structures, representing part-whole hierarchies. This makes it effective for a TODO planner such as ours because we can categorize components of the year into tree structures in which days are under weeks, which are under months and so forth. Also, it would allow the user to treat the composition of individual objects uniformly. For example, tasks within a day could be treated the same as tasks within a week or a month. 
  >      * Decorator
  >         * The decorator design pattern allows objects to gain new functionalities without altering their structures.This makes it effective for a TODO planner such as ours because we can treat each task (that the user inputs) as an object and “decorate” it (categorize it) with different groups. In doing so, we avoid disrupting any structures or patterns, and are able to simply give each “task” an additional function(s). Some categories, such as homework, could be given a higher priority than other categories. All the user needs to worry about is giving their task a title, and categorizing it based on what their task is.
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
