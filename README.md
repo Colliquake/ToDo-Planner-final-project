@@ -49,6 +49,10 @@
  
  <img src="images/project diagram.png">
  
+ The composite portion of the class diagram consists of component TodoList with functions display() and setDone(). The child Project is the composite class with an additional boolean value isDone and an aggregate relationship with TodoList. The other child Task is the leaf and is composed of the same functions and variables. With this setup, the list will be able to visually display a task hierarchy and be checked off as complete.
+ The strategy portion of the class diagram consists of strategy SortingStrategy with function sort(). The concrete strategies are ImportanceSort and DueDateSort, each with the function sort(), which allow the user to sort their tasks by their importance or due date. With this setup, the tasks under each category can be rearranged based on different criteria. SortingStrategy holds an acquaintance relationship with the class TodoList, while TodoList holds an aggregate relationship with SortingStrategy. 
+	The decorator portion of the class diagram consists of decorator Decorator with functions display() and setDone(). The concrete decorators are ImportanceDecorator and DueDateDecorator, which are children of Decorator. ImportanceDecorator has functions display(), setDone(), setImportance(), and variable importance. DueDateDecorator has functions display(), setDone(), setDueMonth(), setDueDay(), setDueYear(). These are children of Decorator, which has an inheritance relationship and an acquaintance relationship with TodoList. With this setup, the tasks can be “decorated” with a due date and importance, allowing them to be sorted according to these criteria. 
+ 
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II
