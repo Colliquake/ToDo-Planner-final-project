@@ -26,6 +26,9 @@ public:
     virtual void setStatus(bool inp){
         isDone= inp;
     }
+    virtual std::string getName(){
+        return name;
+    }
 private:
     std::string name;
     bool isDone;    //0 means not done, 1 means done

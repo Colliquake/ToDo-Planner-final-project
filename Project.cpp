@@ -10,6 +10,7 @@ public:
     Project(std::string inp){
         name= inp;
         isDone= 0;
+        vecSize= 0;
 
         cnuDone();
     }
@@ -22,6 +23,7 @@ public:
     }
     virtual void add(TodoList* inp){
         vecs.push_back(inp);
+        vecSize++;
         cnuDone();
     }
     virtual void display(){
@@ -30,9 +32,24 @@ public:
             vecs.at(i)->display();
         }
     }
+    std::string getName(){
+        return name;
+    }
+    int getVecSize(){
+        return vecSize;
+    }
+    auto vecAt(int x){
+        return vecs.at(x);
+    }
+    void vecSwap(int a, int b){         //TODO: what do if nonexistent element?
+        auto s1= vecs.at(a);
+        auto s2= vecs.at(b);
+        std::swap(s1, s2);
+    }
 private:
     std::string name;
     bool isDone;
+    int vecSize;
     std::vector<TodoList*> vecs;
 
     void cnuDone(){       //Check 'N Update isDone (status)
