@@ -47,7 +47,7 @@
 ## Class Diagram
  > Include a class diagram(s) for each design pattern and a description of the diagram(s). This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
  
- <img src="images/project diagram.png">
+ <img src="images/Updated OMT Diagram.png">
  
  The composite portion of the class diagram consists of component TodoList with functions display() and setDone(). The child Project is the composite class with an additional boolean value isDone and an aggregate relationship with TodoList. The other child Task is the leaf and is composed of the same functions and variables. With this setup, the list will be able to visually display a task hierarchy and be checked off as complete.
  The strategy portion of the class diagram consists of strategy SortingStrategy with function sort(). The concrete strategies are ImportanceSort and DueDateSort, each with the function sort(), which allow the user to sort their tasks by their importance or due date. With this setup, the tasks under each category can be rearranged based on different criteria. SortingStrategy holds an acquaintance relationship with the class TodoList, while TodoList holds an aggregate relationship with SortingStrategy. 
