@@ -6,7 +6,7 @@ void DateAddedSort::SortingStrategy(TodoList* todolist) {
     for(i = 0; i < numlength - 1; i++) {
         min_index = i;
         for(j = i + 1; j < numlength; j++) {
-            if(todolist->at(j)->getDateAdded() < todolist->at(min_index)->getDateAdded()) {
+            if(todolist->at(j)->getTimeAdded() < todolist->at(min_index)->getTimeAdded()) {
                 min_index = j;
             }
             todolist->vecSwap(min_index, i);
