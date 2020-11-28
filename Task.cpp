@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "TodoList.cpp"
+#include <vector>
 
 class Task: public TodoList{
 public:
@@ -31,6 +32,20 @@ public:
     }
     int getTimeAdded(){
         return timeAdded;
+    }
+    std::string getFormatTime(){
+        return formatTime();
+    }
+    std::vector<int> timeIntoVecs(int inpTime){         //returns a vector of ints in the following order: month, day, year, hour, min, sec
+        std::vector<int> retVec;
+        std::tm* now= std::localtime(&curTime);
+        retVec.push_back(now->tm_mon+ 1);
+        retVec.push_back(now->tm_mday);
+        retVec.push_back(now->tm_year+ 1900);
+        retVec.push_back(now->tm_hour);
+        retVec.push_back(now->tm_min);
+        retVec.push_back(now->tm_sec);
+        return retVec;
     }
 private:
     std::string name;
