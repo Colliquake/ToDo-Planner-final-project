@@ -8,8 +8,8 @@ ADD_EXECUTABLE(test
         unit_test.cpp
         )
 
-ADD_EXECUTABLE(lab
-        main.cpp
+ADD_EXECUTABLE(project
+        DueDateDecorator.cpp DueDateSort.cpp Project.cpp DateAddedSort.cpp ImportanceDecorator.cpp ImportanceSort.cpp main.cpp Task.cpp
         )
 
 TARGET_LINK_LIBRARIES(test gtest)
