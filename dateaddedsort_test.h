@@ -15,17 +15,13 @@
 #include "ImportanceSort.hpp"
 #include "DateAddedSort.hpp"
 
-TEST(DASTest, a){
+TEST(DASTest, 3tasks){
     Project* mainP = new Project("Project");
     TodoList* p= new Project("Test");
 
-    Task* t= new Task("task1");
-    Task* tt= new Task("task2");
-    Task* ttt= new Task("task3");
-
-    TodoList* t1= new DueDateDecorator(t, 1, 1, 2030);
-    TodoList* t2= new DueDateDecorator(tt, 1, 1, 2030);
-    TodoList* t3= new DueDateDecorator(ttt, 1, 1, 2030);
+    TodoList* t1= new Task("task1");
+    TodoList* t2= new Task("task2");
+    TodoList* t3= new Task("task3");
 
     p->add(t1); p->add(t2); p->add(t3);
 
@@ -33,6 +29,45 @@ TEST(DASTest, a){
     das->sort(mainP);
 
     EXPECT_EQ(mainP->vecAt(0)->getName(), "task1");
+}
+
+TEST(DASTest, notasks){
+Project* mainP = new Project("Project");
+TodoList* p= new Project("Test");
+
+SortingStrategy* das= new DateAddedSort();
+das->sort(mainP);
+
+EXPECT_EQ(mainP->vecAt(0)->getName(), "Test");
+}
+
+TEST(DASTest, 2tasks){
+Project* mainP = new Project("Project");
+TodoList* p= new Project("Test");
+
+TodoList* t1= new Task("task1");
+TodoList* t2= new Task("task2");
+
+p->add(t1); p->add(t2);
+
+SortingStrategy* das= new DateAddedSort();
+das->sort(mainP);
+
+EXPECT_EQ(mainP->vecAt(1)->getName(), "task2");
+}
+
+TEST(DASTest, 1task){
+Project* mainP = new Project("Project");
+TodoList* p= new Project("Test");
+
+TodoList* t1= new Task("task1");
+
+p->add(t1);
+
+SortingStrategy* das= new DateAddedSort();
+das->sort(mainP);
+
+EXPECT_EQ(mainP->vecAt(0)->getName(), "task1");
 }
 
 #endif
