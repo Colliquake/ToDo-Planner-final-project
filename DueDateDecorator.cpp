@@ -1,3 +1,4 @@
+#include <iostream>
 #include "DueDateDecorator.hpp"
 DueDateDecorator::DueDateDecorator() {
 	todoList = nullptr;
@@ -59,4 +60,8 @@ void DueDateDecorator::display() {
 
 bool DueDateDecorator::status() {
 	return todoList->status();
+}
+
+string DueDateDecorator::getName() {
+	return todoList->getName();
 }

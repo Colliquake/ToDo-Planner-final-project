@@ -1,3 +1,4 @@
+#include <iostream>
 #include"ImportanceDecorator.hpp"
 
 ImportanceDecorator::ImportanceDecorator() {
@@ -46,4 +47,8 @@ void ImportanceDecorator::display() {
 
 bool ImportanceDecorator::status() {
 	return todoList->status();
+}
+
+string ImportanceDecorator::getName() {
+	return todoList->getName();
 }

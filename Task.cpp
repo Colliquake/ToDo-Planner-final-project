@@ -4,22 +4,22 @@
 #include <ctime>
 #include <iostream>
 #include <string>
-#include "TodoList.cpp"
+#include "TodoList.h"
+#include <vector>
 
 class Task: public TodoList{
 public:
-    Task(std::string str, int due){      //TODO: DO SOMETHING WITH THE DUE DATE
+    Task(std::string str){
         name= str;
-        dueDate= due;
         isDone= 0;
         timeAdded= timeRN();
     }
     virtual void display(){
         std::cout<< "ToDo: "<< name<< "\n"
                 << "Time Added: "<< formatTime()<< "\n"
-                << "Is Done?: "<< boolText()<< "\n"
-                << "Due Date:"<< "WORK ON FORMATTING DUE DATE!!!"<< "\n";
+                << "Is Done?: "<< boolText()<< "\n";
     }
+    virtual void add(TodoList* inp){}
     virtual bool status(){
         return isDone;
     }
@@ -32,10 +32,23 @@ public:
     int getTimeAdded(){
         return timeAdded;
     }
+    std::string getFormatTime(){
+        return formatTime();
+    }
+    std::vector<int> timeIntoVecs(int inpTime){         //returns a vector of ints in the following order: month, day, year, hour, min, sec
+        std::vector<int> retVec;
+        std::tm* now= std::localtime(&curTime);
+        retVec.push_back(now->tm_mon+ 1);
+        retVec.push_back(now->tm_mday);
+        retVec.push_back(now->tm_year+ 1900);
+        retVec.push_back(now->tm_hour);
+        retVec.push_back(now->tm_min);
+        retVec.push_back(now->tm_sec);
+        return retVec;
+    }
 private:
     std::string name;
     bool isDone;    //0 means not done, 1 means done
-    int dueDate;
     int timeAdded;
     std::time_t curTime;
 
