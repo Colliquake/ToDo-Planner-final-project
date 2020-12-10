@@ -26,7 +26,7 @@ int main() {
 	//TodoList* testiddd = new ImportanceDecorator(testdd, 0);
 	//testiddd->display();
 
-	Task* t = new Task("Take a shit");
+	Task* t = new Task("Take a poop");
 	ImportanceDecorator* imp = new ImportanceDecorator(t, 1);
 	DueDateDecorator* ddd = new DueDateDecorator(imp);
 	ddd->display();
