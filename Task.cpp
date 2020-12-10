@@ -9,7 +9,7 @@
 
 class Task: public TodoList{
 public:
-    Task(std::string str, int due){      //TODO: DO SOMETHING WITH THE DUE DATE
+    Task(std::string str, int due){
         name= str;
         dueDate= due;
         isDone= 0;
