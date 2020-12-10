@@ -71,6 +71,8 @@
  > Screenshots of the input/output after running your application
  ## Installation/Usage
  > Instructions on installing and running your application
+ > Installation and Usage is the same as with any of our previous labs. cmake3 . is used to generate the makefile and then make can be used to generate the executable "project".
+ > From there running the executable will present the user with an intuitive interface from which they can add tasks, view their complete planner, etc..
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
