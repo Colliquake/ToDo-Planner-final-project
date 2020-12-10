@@ -7,13 +7,6 @@
 
 #include "gtest/gtest.h"
 #include "TodoList.h"
-#include "Project.cpp"
-#include "Task.cpp"
-#include "DueDateDecorator.hpp"
-#include "ImportanceDecorator.hpp"
-#include "DueDateSort.hpp"
-#include "ImportanceSort.hpp"
-#include "DateAddedSort.hpp"
 
 TEST(DASTest, 3tasks){
     Project* mainP = new Project("Project");

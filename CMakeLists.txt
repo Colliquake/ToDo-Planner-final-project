@@ -5,7 +5,7 @@ ADD_SUBDIRECTORY(googletest)
 SET(CMAKE_CXX_STANDARD 11)
 
 ADD_EXECUTABLE(test
-        unit_test.cpp
+        unit_test.cpp DueDateDecorator.cpp DueDateSort.cpp Project.cpp DateAddedSort.cpp ImportanceDecorator.cpp ImportanceSort.cpp Task.cpp
         )
 
 ADD_EXECUTABLE(project
