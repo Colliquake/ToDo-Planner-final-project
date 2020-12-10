@@ -15,11 +15,10 @@ TEST(ISTest, 3tasks){
     TodoList* t2= new Task("task2");
     TodoList* t3= new Task("task3");
 
-    t1->setImportance(2);
-    t2->setImportance(5);
-    t3->setImportance(1);
-
-    p->add(t1); p->add(t2); p->add(t3);
+    TodoList* ip1= new ImportanceDecorator(t1, 2);
+    TodoList* ip2= new ImportanceDecorator(t2, 5);
+    TodoList* ip3= new ImportanceDecorator(t3, 1);
+    p->add(ip1); p->add(ip2); p->add(ip3);
 
     SortingStrategy* is= new ImportanceSort();
     is->sort(p);
@@ -27,35 +26,7 @@ TEST(ISTest, 3tasks){
     EXPECT_EQ(p->vecAt(0)->getName(), "task3");
 }
 
-TEST(ISTest, lasttask){
-    TodoList* p= new Project("Test");
-
-    TodoList* t1= new Task("task1");
-    TodoList* t2= new Task("task2");
-    TodoList* t3= new Task("task3");
-
-    t1->setImportance(2);
-    t2->setImportance(5);
-    t3->setImportance(1);
-
-    p->add(t1); p->add(t2); p->add(t3);
-
-    SortingStrategy* is= new ImportanceSort();
-    is->sort(p);
-
-    EXPECT_EQ(p->vecAt(2)->getName(), "task2");
-}
-
-TEST(ISTest, notasks){
-    TodoList* p= new Project("Test");
-
-    SortingStrategy* is= new ImportanceSort();
-    is->sort(p);
-
-    EXPECT_EQ(p->vecAt(0)->getName(), "Test");
-}
-
-TEST(ISTest, lotsoftasks){
+TEST(ISTest, 5tasks){
 TodoList* p= new Project("Test");
 
 TodoList* t1= new Task("task1");
@@ -64,31 +35,12 @@ TodoList* t3= new Task("task3");
 TodoList* t4= new Task("task4");
 TodoList* t5= new Task("task5");
 
-t1->setImportance(2);
-t2->setImportance(5);
-t3->setImportance(1);
-t4->setImportance(6);
-t5->setImportance(8);
-
-p->add(t1); p->add(t2); p->add(t3); p->add(t4); p->add(t5);
-
-SortingStrategy* is= new ImportanceSort();
-is->sort(p);
-
-EXPECT_EQ(p->vecAt(3)->getName(), "task4");
-}
-
-TEST(ISTest, defaultImportance){
-TodoList* p= new Project("Test");
-
-TodoList* t1= new Task("task1");
-TodoList* t2= new Task("task2");
-TodoList* t3= new Task("task3");
-
-t1->setImportance(2);
-t2->setImportance(5);
-
-p->add(t1); p->add(t2); p->add(t3);
+TodoList* ip1= new ImportanceDecorator(t1, 2);
+TodoList* ip2= new ImportanceDecorator(t2, 5);
+TodoList* ip3= new ImportanceDecorator(t3, 1);
+TodoList* ip4= new ImportanceDecorator(t4, 7);
+TodoList* ip5= new ImportanceDecorator(t5, 9);
+p->add(ip1); p->add(ip2); p->add(ip3); p->add(ip4); p->add(ip5);
 
 SortingStrategy* is= new ImportanceSort();
 is->sort(p);
@@ -96,28 +48,30 @@ is->sort(p);
 EXPECT_EQ(p->vecAt(0)->getName(), "task3");
 }
 
-TEST(ISTest, negativeImportance){
+TEST(ISTest, notasks){
+TodoList* p= new Project("Test");
+
+SortingStrategy* is= new ImportanceSort();
+is->sort(p);
+
+EXPECT_EQ(p->getName(), "Test");
+}
+
+TEST(ISTest, negImportance){
 TodoList* p= new Project("Test");
 
 TodoList* t1= new Task("task1");
 TodoList* t2= new Task("task2");
 TodoList* t3= new Task("task3");
-TodoList* t4= new Task("task4");
-TodoList* t5= new Task("task5");
 
-t1->setImportance(2);
-t2->setImportance(5);
-t3->setImportance(1);
-t4->setImportance(-6);
-t5->setImportance(-10);
-
-p->add(t1); p->add(t2); p->add(t3); p->add(t4); p->add(t5);
+TodoList* ip1= new ImportanceDecorator(t1, 2);
+TodoList* ip2= new ImportanceDecorator(t2, -10);
+TodoList* ip3= new ImportanceDecorator(t3, 1);
+p->add(ip1); p->add(ip2); p->add(ip3);
 
 SortingStrategy* is= new ImportanceSort();
 is->sort(p);
 
-EXPECT_EQ(p->vecAt(0)->getName(), "task5");
-EXPECT_EQ(p->vecAt(1)->getName(), "task4");
+EXPECT_EQ(p->vecAt(0)->getName(), "task2");
 }
-
 #endif
