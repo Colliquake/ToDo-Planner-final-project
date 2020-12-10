@@ -6,12 +6,14 @@
 #define __DATE_ADDED_SORT_TEST_H__
 
 #include "gtest/gtest.h"
-#include "DateAddedSort.hpp"
 #include "TodoList.h"
-#include "SortingStrategy.hpp"
-#include "DueDateDecorator.hpp"
 #include "Project.cpp"
 #include "Task.cpp"
+#include "DueDateDecorator.hpp"
+#include "ImportanceDecorator.hpp"
+#include "DueDateSort.hpp"
+#include "ImportanceSort.hpp"
+#include "DateAddedSort.hpp"
 
 TEST(DASTest, a){
     Project* mainP = new Project("Project");
