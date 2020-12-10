@@ -38,7 +38,7 @@ public:
     int getVecSize(){
         return vecSize;
     }
-    auto vecAt(int x){
+    TodoList* vecAt(int x){
         return vecs.at(x);
     }
     void vecSwap(int a, int b){         //TODO: what do if nonexistent element?
