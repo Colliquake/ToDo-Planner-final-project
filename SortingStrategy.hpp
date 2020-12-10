@@ -1,7 +1,7 @@
 #ifndef __SORTING_STRATEGY_HPP__
 #define __SORTING_STRATEGY_HPP__
 
-#include "TodoList.hpp"
+#include "TodoList.h"
 
 class TodoList;
 
