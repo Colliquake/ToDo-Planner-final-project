@@ -69,6 +69,12 @@
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  ## Screenshots
  > Screenshots of the input/output after running your application
+  <img src="images/unknown.png">
+  <img src="images/unknown-1.png">
+  <img src="images/Screen_Shot_2020-12-10_at_1.26.21_PM.png">
+  <img src="images/Screen_Shot_2020-12-10_at_1.38.01_PM.png">
+  <img src="images/Screen_Shot_2020-12-10_at_1.38.21_PM.png">
+
  ## Installation/Usage
  > Instructions on installing and running your application.
  
