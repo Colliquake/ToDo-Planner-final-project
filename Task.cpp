@@ -9,9 +9,8 @@
 
 class Task: public TodoList{
 public:
-    Task(std::string str, int due){
+    Task(std::string str){
         name= str;
-        dueDate= due;
         isDone= 0;
         timeAdded= timeRN();
     }
@@ -19,8 +18,8 @@ public:
         std::cout<< "ToDo: "<< name<< "\n"
                 << "Time Added: "<< formatTime()<< "\n"
                 << "Is Done?: "<< boolText()<< "\n"
-                << "Due Date:"<< "WORK ON FORMATTING DUE DATE!!!"<< "\n";
     }
+    virtual void add(TodoList* inp){}
     virtual bool status(){
         return isDone;
     }
@@ -50,7 +49,6 @@ public:
 private:
     std::string name;
     bool isDone;    //0 means not done, 1 means done
-    int dueDate;
     int timeAdded;
     std::time_t curTime;
 
