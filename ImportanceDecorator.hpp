@@ -15,6 +15,11 @@ public:
 	virtual void display();
 	virtual bool status();
 	virtual string getName();
+	virtual int getTimeAdded();
+	virtual int getDueDate();
+	virtual int getVecSize();
+	virtual TodoList* vecAt(int);
+	virtual void vecSwap(int a, int b);
 private:
 	TodoList* todoList;
 	int importance;

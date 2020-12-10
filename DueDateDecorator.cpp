@@ -65,3 +65,34 @@ bool DueDateDecorator::status() {
 string DueDateDecorator::getName() {
 	return todoList->getName();
 }
+
+
+int DueDateDecorator::getTimeAdded() {
+	return todoList->getTimeAdded();
+}
+
+int DueDateDecorator::getImportance() {
+	return todoList->getImportance();
+}
+
+int DueDateDecorator::getDueDate() {
+	int result = 0;
+	int daysindays, monthsindays, yearsindays;
+	daysindays = dueDay;
+	monthsindays = (dueMonth * 31);
+	yearsindays = (dueYear * 365);
+
+	return result;
+}
+
+int DueDateDecorator::getVecSize() {
+	return todoList->getVecSize();
+}
+
+TodoList* DueDateDecorator::vecAt(int i) {
+	return todoList->vecAt(i);
+}
+
+void DueDateDecorator::vecSwap(int a, int b) {
+	todoList->vecSwap(a, b);
+}

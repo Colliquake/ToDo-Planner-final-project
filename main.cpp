@@ -3,16 +3,19 @@
 #include "Task.cpp"
 #include "DueDateDecorator.hpp"
 #include "ImportanceDecorator.hpp"
+#include "DueDateSort.hpp"
+#include "ImportanceSort.hpp"
+#include "DateAddedSort.hpp"
 
 void displayMenu();
 TodoList* addTask();
 TodoList* addProject();
-void addProjectToProject(TodoList* p, vector<TodoList*>& vec);
-void viewPlanner(vector<TodoList*>& vec);
-void deleteTaskorProject(vector<TodoList*>& vec);
+void addProjectToProject(TodoList* p, Project* mainP);
+void viewPlanner(Project* mainP);
+void deleteTaskorProject(Project* mainP);
 
 int main() {
-	vector<TodoList*> vec;
+	Project* mainP = new Project("Planner");
 
 	int input = 0;
 	while (input != 5) {
@@ -24,7 +27,7 @@ int main() {
 		case 1:
 		{
 			TodoList* t = addTask();
-			vec.push_back(t);
+			mainP->add(t);
 			break;
 		}
 		case 2:
@@ -40,12 +43,12 @@ int main() {
 			switch (input) {
 			case 1:
 			{
-				vec.push_back(p);
+				mainP->add(p);
 				break;
 			}
 			case 2:
 			{
-				addProjectToProject(p, vec);
+				addProjectToProject(p, mainP);
 				break;
 			}
 			}
@@ -53,16 +56,34 @@ int main() {
 		}
 		case 3:
 		{
-			viewPlanner(vec);
+			viewPlanner(mainP);
 			break;
 		}
 		case 4:
 		{
-			deleteTaskorProject(vec);
+			deleteTaskorProject(mainP);
 			break;
 		}
 		case 5:
 		{
+			break;
+		}
+		case 6:
+		{
+			SortingStrategy* das = new DateAddedSort();
+			das->sort(mainP);
+			break;
+		}
+		case 7:
+		{
+			SortingStrategy* dds = new DueDateSort();
+			dds->sort(mainP);
+			break;
+		}
+		case 8:
+		{
+			SortingStrategy* is = new ImportanceSort();
+			is->sort(mainP);
 			break;
 		}
 		default:
@@ -81,6 +102,9 @@ void displayMenu() {
 	cout << "3. View Planner" << endl;
 	cout << "4. Delete a task/project" << endl;
 	cout << "5. Quit" << endl;
+	cout << "6. Sort by Date Added" << endl;
+	cout << "7. Sort by Due Date" << endl;
+	cout << "8. Sort by Importance" << endl;
 }
 
 TodoList* addTask() {
@@ -116,7 +140,7 @@ TodoList* addTask() {
 		cin >> y;
 		cin.ignore();
 
-		TodoList* ddd = new DueDateDecorator(t);
+		TodoList* ddd = new DueDateDecorator(t, m, d, y);
 		return ddd;
 	}
 
@@ -151,7 +175,7 @@ TodoList* addTask() {
 		cin >> i2;
 		cin.ignore();
 
-		TodoList* ddd2 = new DueDateDecorator(t);
+		TodoList* ddd2 = new DueDateDecorator(t, m2, d2, y2);
 		TodoList* id2 = new ImportanceDecorator(ddd2, i2);
 		return id2;
 	}
@@ -184,15 +208,15 @@ TodoList* addProject() {
 	return p;
 }
 
-void addProjectToProject(TodoList* p, vector<TodoList*>& vec) {
+void addProjectToProject(TodoList* p, Project* mainP) {
 	bool matchFound = false;
 	while (!matchFound) {
 		cout << "Project Name: " << endl;
 		string name;
 		getline(cin, name);
-		for (auto i : vec) {
-			if (name.compare(i->getName()) == 0) {
-				i->add(p);
+		for (int i = 0; i < mainP->getVecSize(); i++) {
+			if (name.compare(mainP->vecAt(i)->getName()) == 0) {
+				mainP->add(p);
 				matchFound = true;
 				break;
 			}
@@ -201,29 +225,24 @@ void addProjectToProject(TodoList* p, vector<TodoList*>& vec) {
 }
 
 
-void viewPlanner(vector<TodoList*>& vec) {
+void viewPlanner(Project* mainP) {
 	cout << endl;
-	for (auto i : vec) {
-		i->display();
-		cout << endl;
-	}
+	mainP->display();
 	cout << endl;
 }
 
-void deleteTaskorProject(vector<TodoList*>& vec) {
+void deleteTaskorProject(Project* mainP) {
 	bool matchFound = false;
 	while (!matchFound) {
 		cout << "Project Name: " << endl;
 		string name;
 		getline(cin, name);
-		int iter = 0;
-		for (auto i : vec) {
-			if (name.compare(i->getName()) == 0) {
-				vec.erase(vec.begin() + iter);
+		for (int i = 0; i < mainP->getVecSize(); i++) {
+			if ((name.compare(mainP->vecAt(i)->getName()) == 0)) {
+				mainP->erase(i);
 				matchFound = true;
 				break;
 			}
-			iter++;
 		}
 	}
 }
