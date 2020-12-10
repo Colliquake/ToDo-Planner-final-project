@@ -52,3 +52,24 @@ bool ImportanceDecorator::status() {
 string ImportanceDecorator::getName() {
 	return todoList->getName();
 }
+
+int ImportanceDecorator::getTimeAdded() {
+	return todoList->getTimeAdded();
+}
+
+int ImportanceDecorator::getDueDate() {
+	return todoList->getDueDate();
+}
+
+int ImportanceDecorator::getVecSize() {
+	return todoList->getVecSize();
+}
+
+TodoList* ImportanceDecorator::vecAt(int i) {
+	return todoList->vecAt(i);
+}
+
+void ImportanceDecorator::vecSwap(int a, int b) {
+	todoList->vecSwap(a, b);
+}
+

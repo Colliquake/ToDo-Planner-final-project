@@ -1,9 +1,7 @@
 #ifndef __SORTING_STRATEGY_HPP__
 #define __SORTING_STRATEGY_HPP__
 
-#include "TodoList.hpp"
-
-class TodoList;
+#include "TodoList.h"
 
 class SortingStrategy {
     public:
@@ -12,3 +10,4 @@ class SortingStrategy {
 };
 
 #endif //__SORTING_STRATEGY_HPP__
+
