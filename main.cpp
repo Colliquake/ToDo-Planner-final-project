@@ -1,39 +1,35 @@
-//
-// Created by alexr on 11/24/2020.
-//
-#include <iostream>
+#include "TodoList.hpp"
 #include "Project.cpp"
 #include "Task.cpp"
+#include "DueDateDecorator.hpp"
+#include "ImportanceDecorator.hpp"
 
-int main(){
-    Task* math1= new Task("Prepare", 14);
+int main() {
+	//TodoList* test = new TodoList();
+	//test->display();
+	//
+	//cout << endl;
 
-    Task* sci1= new Task("Read", 16);
-    Task* sci2= new Task("Nap", 17);
+	//TodoList* testdd = new DueDateDecorator(test);
+	//testdd->setIsDone(true);
+	//testdd->display();
 
-    Task* study= new Task("Study", 19);
+	//cout << endl;
 
-    Project* math= new Project("math");
-    Project* sci= new Project("science");
-    math->add(math1);
-    sci->add(sci1);
-    sci->add(sci2);
+	//TodoList* test2 = new TodoList();
 
-    std::cout<< "Testing displays"<< std::endl;
-    math->display();
-    std::cout<< std::endl;
-    sci->display();
+	//TodoList* testid = new ImportanceDecorator(test2, 3);
+	//testid->display();
+	//
+	//cout << endl;
 
-    std::cout<< "Testing task added times:"<< std::endl;
-    std::cout<< sci1->getTimeAdded()<< std::endl;
+	//TodoList* testiddd = new ImportanceDecorator(testdd, 0);
+	//testiddd->display();
 
-    std::cout<< "Testing timeIntoVecs vectors for math1 task:"<< std::endl;
-    std::vector<int> testVec= sci1->timeIntoVecs(sci1->getTimeAdded());
-    std::cout<< "Month: "<< testVec.at(0)<< std::endl;
-    std::cout<< "Day: "<< testVec.at(1)<< std::endl;
-    std::cout<< "Year: "<< testVec.at(2)<< std::endl;
-    std::cout<< "Hour: "<< testVec.at(3)<< std::endl;
-    std::cout<< "Min: "<< testVec.at(4)<< std::endl;
-    std::cout<< "Sec: "<< testVec.at(5)<< std::endl;
-    return 0;
+	Task* t = new Task("Take a shit");
+	ImportanceDecorator* imp = new ImportanceDecorator(t, 1);
+	DueDateDecorator* ddd = new DueDateDecorator(imp);
+	ddd->display();
+
+	return 0;
 }

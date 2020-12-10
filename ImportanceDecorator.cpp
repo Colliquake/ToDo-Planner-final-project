@@ -1,3 +1,4 @@
+#include <iostream>
 #include"ImportanceDecorator.hpp"
 
 ImportanceDecorator::ImportanceDecorator() {

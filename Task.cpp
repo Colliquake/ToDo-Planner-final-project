@@ -17,7 +17,7 @@ public:
     virtual void display(){
         std::cout<< "ToDo: "<< name<< "\n"
                 << "Time Added: "<< formatTime()<< "\n"
-                << "Is Done?: "<< boolText()<< "\n"
+                << "Is Done?: "<< boolText()<< "\n";
     }
     virtual void add(TodoList* inp){}
     virtual bool status(){
