@@ -10,4 +10,3 @@ class SortingStrategy {
 };
 
 #endif //__SORTING_STRATEGY_HPP__
-
