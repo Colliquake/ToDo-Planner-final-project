@@ -14,6 +14,7 @@ public:
 	virtual void add(TodoList* inp);
 	virtual void display();
 	virtual bool status();
+	virtual string getName();
 private:
 	TodoList* todoList;
 	int importance;
