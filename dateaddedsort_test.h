@@ -20,6 +20,45 @@ TEST(DASTest, 3tasks){
     SortingStrategy* das= new DateAddedSort();
     das->sort(p);
 
-    EXPECT_EQ(mainP->vecAt(0)->getName(), "task1");
+    EXPECT_EQ(p->vecAt(0)->getName(), "task1");
+}
+
+TEST(DASTest, multiple){
+TodoList* p= new Project("Test");
+
+TodoList* t1= new Task("task1");
+TodoList* t2= new Task("task2");
+TodoList* t3= new Task("task3");
+
+p->add(t1); p->add(t2); p->add(t3);
+
+SortingStrategy* das= new DateAddedSort();
+das->sort(p);
+
+EXPECT_EQ(p->vecAt(1)->getName(), "task2");
+}
+
+TEST(DASTest, moretasks){
+TodoList* p= new Project("Test");
+
+TodoList* t1= new Task("task1");
+TodoList* t2= new Task("task2");
+TodoList* t3= new Task("task3");
+
+p->add(t1); p->add(t2); p->add(t3);
+
+SortingStrategy* das= new DateAddedSort();
+das->sort(p);
+
+EXPECT_EQ(p->vecAt(2)->getName(), "task3");
+}
+
+TEST(DASTest, notasks){
+TodoList* p= new Project("Test");
+
+SortingStrategy* das= new DateAddedSort();
+das->sort(p);
+
+EXPECT_EQ(p->getName(), "Test");
 }
 #endif
