@@ -9,4 +9,4 @@ class SortingStrategy {
         virtual void sort(TodoList* todolist) = 0;
 };
 
-#endif
+#endif //__SORTING_STRATEGY_HPP__
