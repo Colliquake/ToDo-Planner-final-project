@@ -82,4 +82,5 @@
  > From there running the executable will present the user with an intuitive interface from which they can add tasks, view their complete planner, etc..
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ 
  All of our tests were done locally, and we only pushed the most "bizarre" cases-- that is, we only shared the tests that were most likely to yield errors (since all the other tests were simply repeats and didn't test for anything different).
