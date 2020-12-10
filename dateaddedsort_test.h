@@ -30,7 +30,7 @@ TEST(DASTest, a){
     SortingStrategy* das= new DateAddedSort();
     das->sort(mainP);
 
-    EXPECT_EQ(mainP->display(), "For tasks under Test"<< endl<< "ToDo: task1\nTime Added: "<< t1->formatTime()<< "\nIs Done?: "<< t1->boolText()<< "\n");
+    EXPECT_EQ(mainP->vecAt(0)->getName(), "task1");
 }
 
 #endif
