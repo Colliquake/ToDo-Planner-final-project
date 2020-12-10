@@ -10,6 +10,8 @@
 #include "TodoList.h"
 #include "SortingStrategy.hpp"
 #include "DueDateDecorator.hpp"
+#include "Project.cpp"
+#include "Task.cpp"
 
 TEST(DASTest, a){
     Project* mainP = new Project("Project");
