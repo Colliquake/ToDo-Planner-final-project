@@ -2,7 +2,7 @@
 #define __IMPORTANCE_SORT_HPP__
 
 #include "SortingStrategy.hpp"
-#include "TodoList.hpp"
+#include "TodoList.h"
 
 using namespace std;
 
