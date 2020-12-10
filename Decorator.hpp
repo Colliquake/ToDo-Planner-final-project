@@ -1,6 +1,6 @@
 #ifndef __DECORATOR__
 #define __DECORATOR__
-#include "TodoList.hpp"
+#include "TodoList.h"
 class Decorator : public TodoList{
 
 };
